@@ -1,0 +1,1131 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap");
+/*=============== VARIABLES CSS ===============*/
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /* Высота заголовка */
+  --header-height: 3.5rem;
+
+  /* Цветовые переменные */
+  --first-color: hsl(182, 100%, 59%);
+  --first-color-light: hsl(182, 97%, 77%);
+  --first-color-alt: hsl(182, 67%, 52%);
+  --first-color-dark: hsl(182, 63%, 50%);
+  --first-color-gray: hsl(182, 6%, 64%);
+  --title-color: hsl(180, 4%, 98%);
+  --title-color-black: hsl(180, 4%, 12%);
+  --text-color: hsl(180, 4%, 72%);
+  --text-color-light: hsl(180, 4%, 65%);
+  --body-color: hsl(180, 12%, 8%);
+
+  /* Шрифты и типографика */
+  --body-font: "Montserrat", serif;
+  --second-font: "Pacifico", cursive;
+  --biggest-font-size: 2rem;
+  --bigger-font-size: 1.5rem;
+  --big-font-size: 1.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* Толщина шрифта */
+  --font-bold: 700;
+  --font-black: 900;
+
+  /* z-index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Адаптивная типографика */
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 6rem;
+    --bigger-font-size: 3.5rem;
+    --big-font-size: 2.75rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== ЗАГРУЗОЧНЫЙ ЭКРАН ===============*/
+/* Стили для загрузочного экрана */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000; /* Цвет фона экрана */
+  color: #fff; /* Цвет текста */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeOut 1s ease 3s forwards; /* Убираем экран через 3 секунды */
+}
+
+/* Анимация текста или логотипа */
+.loading-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Анимация исчезновения экрана */
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+/*=============== BASE ===============*/
+/* Основные стили для всех элементов */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+/* Класс для контейнеров */
+.container {
+  max-width: 1124px;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+/* Класс для секций */
+.section {
+  padding: 4.5rem 0 2rem;
+}
+
+/* Дополнительные классы */
+.section__data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Стили для заголовков секций */
+.section__title,
+.section__title-border {
+  font-size: var(--big-font-size);
+  letter-spacing: 1.5px;
+}
+
+.section__subtitle {
+  font-size: var(--h2-font-size);
+  font-family: var(--second-font);
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: var(--first-color);
+  transform: rotate(-2deg);
+}
+
+.section__titles {
+  display: flex;
+  column-gap: 0.6rem;
+  justify-content: center;
+}
+
+.section__title-border {
+  -webkit-text-stroke: 1px var(--text-color);
+  color: transparent;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.main {
+  overflow: hidden; /* Для ScrollReveal */
+}
+
+.color-red {
+  color: hsl(0, 80%, 64%);
+}
+
+.color-green {
+  color: var(--first-color);
+}
+
+/*=============== HEADER & NAV ===============*/
+/* Основные стили для заголовка */
+.header {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  transition: background 0.3s;
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+
+.nav__logo,
+.nav__toggle {
+  color: var(--title-color);
+}
+
+.nav__logo {
+  align-items: center;
+  column-gap: 5rem;
+  font-weight: var(--font-bold);
+}
+
+.nav__logo img {
+  width: 1.25rem;
+}
+
+.nav__toggle {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+  .nav__menu {
+    position: fixed;
+    background-color: hsla(180, 12%, 8%, 0.8);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    border-left: 2px solid var(--first-color-gray);
+    transition: right 0.3s;
+  }
+}
+
+.nav__list {
+  padding: 5rem 0 0 3rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.nav__link {
+  color: var(--title-color);
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--first-color);
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+.nav .nav__button {
+  background-color: var(--title-color);
+  border: none;
+}
+
+.show-menu {
+  right: 0;
+}
+
+.bg-header {
+  background-color: var(--body-color);
+  box-shadow: 0 4px 8px hsla(180, 12%, 8%, 0.8);
+}
+
+.active-link{
+  color: var(--first-color);
+}
+
+/*=============== СЛАЙДЕР ===============*/
+/* Основные стили для слайдера */
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.slider__container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider__slide {
+  min-width: 100%;
+  display: none;
+  position: relative;
+}
+
+.slider__slide.active {
+  display: block;
+}
+
+
+.slider__content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6); /* Затемнение текста */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Навигационные кнопки для слайдера */
+.slider__pagination {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination__button {
+  width: 1.5rem;
+  height: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pagination__button:hover,
+.pagination__button.active {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/*=============== BUTTON ===============*/
+/* Общие стили для кнопок */
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  padding: 18px 32px;
+  border: 2px solid var(--first-color-light);
+  color: var(--title-color-black);
+  font-weight: var(--font-bold);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: var(--first-color-alt);
+}
+
+.button i {
+  font-size: 1.25rem;
+  transition: transform 0.3s;
+}
+
+.button__flex {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.button__flex:hover i {
+  transform: translateX(0.25rem);
+}
+
+/*=============== LOGOS ===============*/
+.logos__container {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+
+.logos__img {
+  width: 120px;
+}
+
+/*=============== PROGRAM ===============*/
+.program__container {
+  grid-template-columns: 225px;
+  justify-content: center;
+  row-gap: 2rem;
+}
+
+.program__card {
+  display: grid;
+  background-color: hsla(79, 6%, 64%, 0.07);
+  padding: 1.5rem 2rem;
+  border: 2px solid transparent;
+  transition: background 0.5s, border 0.4s;
+}
+
+.program__image {
+  width: 45px;
+}
+
+.program__shape {
+  width: 60px;
+  height: 60px;
+  background-color: var(--first-color-gray);
+  border-radius: 40%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  transition: background 0.5s;
+}
+
+.program__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 1rem;
+}
+
+.program__description {
+  font-size: var(--small-font-size);
+  letter-spacing: 0.5px;
+  line-height: 150%;
+}
+
+.program__title,
+.program__description {
+  transition: color 0.5s;
+}
+
+.program__button {
+  justify-self: flex-end;
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--title-color-black);
+  transition: opacity 0.4s;
+}
+
+.program__button i {
+  display: block;
+  transform: transform 0.3s;
+}
+
+.program__button:hover i {
+  transform: translateX(0.25rem);
+}
+
+.program__card:hover {
+  background-color: var(--first-color);
+  border: 2px solid var(--first-color-light);
+}
+
+.program__card:hover .program__shape {
+  background-color: var(--first-color-light);
+}
+
+.program__card:hover .program__title,
+.program__card:hover .program__description {
+  color: var(--title-color-black);
+}
+
+.program__card:hover .program__button {
+  opacity: 1;
+}
+
+/*=============== CHOOSE ===============*/
+.choose {
+  padding-bottom: 0;
+}
+
+.choose__overflow {
+  position: relative;
+}
+
+.choose__container {
+  row-gap: 3rem;
+}
+
+.choose__content .section__data {
+  margin-bottom: 2rem;
+}
+
+.choose__description {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.choose__data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 2rem;
+}
+
+.choose__group {
+  text-align: center;
+}
+
+.choose__number {
+  font-size: var(--h1-font-size);
+  font-family: var(--second-font);
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+
+.choose__subtitle {
+  font-size: var(--small-font-size);
+}
+
+.choose__triangle {
+  height: 325px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+.choose__triangle-1 {
+  width: 305px;
+  background-color: var(--first-color);
+}
+.choose__triangle-2 {
+  width: 205px;
+  background-color: var(--first-color-alt);
+}
+.choose__triangle-3 {
+  width: 105px;
+  background-color: var(--first-color-dark);
+}
+
+.choose__img {
+  width: 260px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+/*=============== PRICING ===============*/
+.program__container {
+  grid-template-columns: 285px;
+  justify-content: center;
+  row-gap: 2rem;
+}
+
+.pricing__card,
+.procing__shape,
+.procing__list {
+  display: grid;
+}
+
+.pricing__card {
+  row-gap: 2rem;
+  background-color: hsla(79, 6%, 64%, 0.07);
+  padding: 2rem 2.5rem;
+}
+
+.pricing__img {
+  width: 56px;
+}
+
+.pricing__shape {
+  width: 60px;
+  height: 60px;
+  background-color: var(--first-color-gray);
+  border-radius: 40%;
+  place-items: center;
+  margin-bottom: 1rem;
+}
+
+.pricing__title {
+  font-size: var(--h3-font-size);
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.pricing__number {
+  font-size: var(--h1-font-size);
+}
+
+.pricing__list {
+  row-gap: 1rem;
+}
+
+.pricing__item {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+  font-size: var(--small-font-size);
+}
+
+.pricing__item i {
+  font-size: 1.25rem;
+  color: var(--first-color);
+}
+
+.pricing__item-opacity {
+  opacity: 0.3;
+}
+
+.pricing__button {
+  background-color: var(--title-color);
+}
+
+.pricing__button:hover {
+  background-color: var(--title-color);
+}
+
+.pricing__card-active {
+  background-color: var(--first-color);
+  border: 2px solid var(--first-color-light);
+}
+
+.pricing__card-active .pricing__shape {
+  background-color: var(--first-color-light);
+}
+
+.pricing__card-active .pricing__item i {
+  color: var(--title-color);
+}
+
+.pricing__card-active .pricing__title,
+.pricing__card-active .pricing__number,
+.pricing__card-active .pricing__item {
+  color: var(--title-color-black);
+}
+/*=============== CALCULATE ===============*/
+.calculate {
+  padding-bottom: 0;
+}
+
+.calculate__container {
+  row-gap: 1rem;
+}
+
+.calculate__content .section__titles {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.calculate__description {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.calculate__form {
+  display: grid;
+  row-gap: 1rem;
+}
+
+.calculate__box {
+  position: relative;
+  border: 2px solid var(--first-color-light);
+  width: 300px;
+  justify-self: center;
+}
+
+.calculate__input {
+  width: 100%;
+  background: transparent;
+  padding: 20px 56px 20px 24px;
+  outline: none;
+  border: none;
+  color: var(--text-color);
+}
+
+.calculate__input::-webkit-outer-spin-button
+  .calculate__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.calculate__input[type="number"] {
+  -moz-apperance: textfield;
+}
+
+.calculate__label {
+  left: 1 rem;
+  right: 1 rem;
+  top: 1.25rem;
+  color: var(--title-color);
+}
+
+.calculate__form .button {
+  margin-top: 1.5rem;
+}
+
+.button {
+  width: 300px;
+  justify-self: center;
+}
+
+.calculate__img {
+  width: 200px;
+  justify-self: center;
+  margin-bottom: 1 rem;
+}
+
+.calculate__message {
+  position: absolute;
+  transform: translateY(1rem);
+  justify-self: center;
+}
+/*=============== FOOTER ===============*/
+.footer__container {
+  row-gap: 4rem;
+  padding-top: 1rem;
+}
+
+.footer__logo,
+.footer__description {
+  color: var(--title-color);
+}
+
+.footer__logo,
+.footer__form,
+.footer__social {
+  display: flex;
+}
+
+.footer__logo {
+  align-items: center;
+  column-gap: 0.5rem;
+  font-weight: var(--font-bold);
+  margin-bottom: 1.5rem;
+}
+
+.footer__logo img {
+  width: 1.5rem;
+}
+
+.footer__description {
+  margin-bottom: 2rem;
+}
+
+.footer__form {
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer__input {
+  padding: 20px 56px 20px 24px;
+  border: 2px solid var(--first-color-light);
+  background: transparent;
+  color: var(--text-color);
+  outline: none;
+}
+
+.footer__content,
+.footer__links,
+.footer__group {
+  display: grid;
+}
+
+.footer__content {
+  grid-template-columns: repeat (2, max-content);
+  gap: 2.5rem 3.5rem;
+}
+
+.footer__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 1.5rem;
+}
+
+.footer__links {
+  row-gap: 0.75rem;
+}
+
+.footer__link{
+  color: var(--text-color);
+  transition: color .3s;
+}
+
+.footer__link:hover{
+  color: var(--first-color);
+}
+
+.footer__group{
+  margin-top: 5rem;
+  justify-items: center;
+  row-gap: 2rem;
+}
+
+.footer__social{
+  column-gap: 1.25rem;
+}
+
+.footer__social-link{
+  display: inline-flex;
+  padding: .35rem;
+  background-color: var(--first-color);
+  border-radius: 50%;
+  font-size: 1.25rem;
+  color: var(--title-color-black);
+  transition: background .4s;
+}
+
+.footer__social-link:hover{
+  background-color: var(--first-color-dark);
+}
+
+.footer__copy{
+  font-size: var(--smaller-font-size);
+  color:var(--text-color-light);
+}
+
+.footer__message{
+  position: absolute;
+  transform: translateY(1rem);
+}
+/*=============== SCROLL BAR ===============*/
+/* Стили для полосы прокрутки */
+::-webkit-scrollbar{
+  width: .6rem;
+  border-radius: .5rem;
+  background-color: hsl(79, 4%, 15%);
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: hsl(79, 4%, 25%);
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: hsl(79, 4%, 25%);
+}
+
+
+/*=============== SCROLL UP ===============*/
+/* Кнопка для прокрутки вверх */
+.scrollup{
+  position: fixed;
+  right: 1rem;
+  bottom: -30%;
+  background-color: var(--first-color);
+  display: inline-flex;
+  padding: .35rem;
+  color: var(--title-color-black);
+  font-size: 1.25rem;
+  z-index: var(--z-tooltip);
+  transition: .3s;
+}
+
+.scrollup:hover{
+  transform: translateY(-.25rem);
+}
+
+/* Показ кнопки для прокрутки вверх */
+.show-scroll{
+  bottom: 3rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* Адаптивные стили для разных устройств */
+
+/* Для маленьких устройств (меньше 340px) */
+@media screen and (max-width: 340px) {
+  .container {
+    margin: 1rem;
+  }
+
+  .section__titles {
+    /* Секционные заголовки располагаются вертикально */
+    flex-direction: column;
+    row-gap: 0.25rem;
+  }
+
+  /* Адаптация треугольников для маленьких экранов */
+  .home__triangle,
+  .choose__triangle {
+    height: 25vh;
+  }
+
+  /* Уменьшаем ширину изображения выбора */
+  .choose_img {
+    width: 80%;
+  }
+
+  /* Карточки ценовых пакетов занимают 1 колонку */
+  .pricing__container {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing__card {
+    padding: 1.5rem;
+  }
+
+  /* В подвале секции располагаются в одну колонку */
+  .footer__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Для средних устройств (от 768px до 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .nav__menu {
+    width: 50px;
+  }
+
+  /* Основной контейнер home и choose располагается в две колонки */
+  .home__container,
+  .choose__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  /* Текстовые блоки выравниваются по началу */
+  .home__data,
+  .choose__content .section__data,
+  .choose__description,
+  .calculate__description {
+    text-align: initial;
+  }
+
+  /* Логотипы в 4 колонки */
+  .logos__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Программы в 2 колонки */
+  .program__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .choose__content {
+    order: 1;
+  }
+
+  .choose__data {
+    justify-items: flex-start;
+  }
+
+  /* Карточки ценовых пакетов располагаются в 2 колонки */
+  .pricing__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  /* Форма расчета включает две колонки */
+  .calculate__container {
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+  }
+
+  .calculate__form {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+
+  .calculate__form .button {
+    justify-self: center;
+  }
+
+  /* Подвал в две колонки */
+  .footer__container {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+  }
+
+  /* Содержимое подвала в 3 колонки */
+  .footer__content {
+    grid-template-columns: repeat(3, max-content);
+  }
+}
+
+/* Для больших устройств (от 1024px) */
+@media screen and (min-width: 1024px) {
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  .nav__menu {
+    width: auto;
+  }
+
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+
+  .nav__list {
+    /* Горизонтальное расположение элементов навигации */
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    column-gap: 4rem;
+  }
+
+  /* Секции центрируются */
+  .section {
+    padding: 7rem 0 0; 
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Большой шрифт для подзаголовков */
+  .section__subtitle {
+    font-size: 2rem;
+  }
+
+  /* Центровка и адаптация изображения и описания */
+  .home__title {
+    margin: 0.75rem 0 1.25rem;
+  }
+
+  .home__description {
+    width: 60%; 
+    margin: 0 auto 3rem;
+  }
+
+  .home__img {
+    width: 70%; 
+    max-width: 550px;
+    transform: translateX(-6rem);
+  }
+
+  .home__triangle {
+    height: 70vh;
+  }
+
+  /* Центровка логотипов */
+  .logos {
+    padding: 3.5rem 0 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logos__img {
+    width: 190px;
+  }
+
+  /* Централизуем изображение выбора */
+  .choose__img {
+    width: 60%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  /* Карточки цен в 3 колонки */
+  .pricing__container {
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem;
+  }
+
+  /* Центровка формы */
+  .calculate__form {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  /* Позиция кнопки прокрутки вверх */
+  .scrollup {
+    right: 3rem;
+  }
+}
+
+/* Для устройств с шириной более 1150px */
+@media screen and (min-width: 1150px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Программы в 4 колонки */
+  .program__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+
+  .padding__card {
+    padding: 2rem;
+  }
+
+  /* Подвал с расположением формы и социальных иконок */
+  .footer__form {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .footer__content {
+    column-gap: 5rem;
+  }
+
+  /* Содержимое подвала в 2 колонки */
+  .footer__group {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    margin-top: 7rem;
+    gap: 1rem;
+  }
+
+  .footer__social {
+    order: 1;
+    align-self: center;
+  }
+}

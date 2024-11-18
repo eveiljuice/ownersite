@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== ДОБАВЛЕНИЕ ИКОНКИ НА ВКЛАДКУ В БРАУЗЕРЕ  ===============-->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+
+    <!--===============  ДОБАВЛЕНИЕ БИБЛИОТЕКИ ИКОНОК REMIXICON ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>D-FIT (Эльсессер Тимофей ИС 3-1(22))</title>
+</head>
+
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="assets/img/logo-nav.png" alt="logo" /> D-FIT
+            </a>
+
+            <div class="loading-screen">
+                <div class="loading-logo">
+                    <a href="#" class="nav__logo">
+                        <img src="assets/img/logo-nav.png" alt="logo" /> D-FIT
+                    </a>        
+                </div>
+              </div>
+              
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#program" class="nav__link">Программы тренировок</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#choose" class="nav__link">Выбирай нас</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#pricing" class="nav__link">Прайс</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#footer" class="nav__link"><strong>+7-902-862-17-00</strong></a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+
+        <!--==================== ГЛАВНАЯ ====================-->
+    <main class="main">
+        <section class="slider section" id="slider">
+            <div class="slider">
+                <div class="slider__container">
+                  <div class="slider__slide active">
+                    <img src="assets/img/slider1.png" alt="Фото 1">
+                    <div class="slider__content">
+                      <h2>Год фитнеса по цене 6 месяцев</h2>
+                      <br>
+                      <p>Фитнес по правилам выгоды!!!</p>
+                      <br>
+                      <a href="#buy" class="button">Купить пакет</a>
+                    </div>
+                  </div>
+                  <div class="slider__slide">
+                    <img src="assets/img/slider2.png" alt="Фото 2">
+                    <div class="slider__content">
+                      <h2>Калькулятор ИМТ</h2>
+                      <br>
+                      <p>Узнайте свой индекс массы тела</p>
+                      <br>
+                      <a href="#bmi" class="button">Посчитать ИМТ</a>
+                    </div>
+                  </div>
+                  <div class="slider__slide">
+                    <img src="assets/img/slider3.png" alt="Фото 3">
+                    <div class="slider__content">
+                      <h2>Записаться на тренировку</h2>
+                      <br>
+                      <p>Заполните форму для записи</p>
+                      <br>
+                      <a href="#form" class="button">Записаться</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider__pagination">
+                  <button class="pagination__button" onclick="showSlide(0)"></button>
+                  <button class="pagination__button" onclick="showSlide(1)"></button>
+                  <button class="pagination__button" onclick="showSlide(2)"></button>
+                </div>
+              </div>
+        </section>
+        
+
+        <!--==================== ЛОГОТИПЫ ====================-->
+        <section class="logos section">
+            <img src="assets/img/logo1.png" alt="logo image" class="logos__img" />
+            <img src="assets/img/logo2.png" alt="logo image" class="logos__img" />
+            <img src="assets/img/logo3.png" alt="logo image" class="logos__img" />
+            <img src="assets/img/logo4.png" alt="logo image" class="logos__img" />
+        </section>
+
+        <!--==================== ПРОГРАММЫ ТРЕНИРОВОК ====================-->
+        <section class="program section" id="program">
+            <div class="container">
+                <div class="section__data">
+                    <h2 class="section__subtitle">Наша программа</h2>
+                    <div class="section__titles">
+                        <h1 class="section__title-border">"ПОСТРОЙ</h1>
+                        <h1 class="section__title-">ЛУЧШЕЕ ТЕЛО"</h1>
+                    </div>
+
+                    <div class="program__container grid">
+                        <article class="program__card">
+                            <div class="program__shape">
+                                <img src="assets/img/program1.png" alt="program image" class="program__image" />
+                            </div>
+
+                            <h3 class="program__title">Развитие мускулатуры</h3>
+
+                            <p class="program__description">
+                                Наш тренер подскажет вам как правильно добиться наилучшего
+                                результата
+                            </p>
+
+                            <a href="#" class="program__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </article>
+
+                        <article class="program__card">
+                            <div class="program__shape">
+                                <img src="assets/img/program2.png" alt="program image" class="program__image" />
+                            </div>
+
+                            <h3 class="program__title">Кардио</h3>
+
+                            <p class="program__description">
+                                Наш тренер подскажет вам как правильно добиться наилучшего
+                                результата
+                            </p>
+
+                            <a href="#" class="program__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </article>
+
+                        <article class="program__card">
+                            <div class="program__shape">
+                                <img src="assets/img/program3.png" alt="program image" class="program__image" />
+                            </div>
+
+                            <h3 class="program__title">Йога</h3>
+
+                            <p class="program__description">
+                                Наш тренер подскажет вам как правильно добиться наилучшего
+                                результата
+                            </p>
+
+                            <a href="#" class="program__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </article>
+
+                        <article class="program__card">
+                            <div class="program__shape">
+                                <img src="assets/img/program4.png" alt="program image" class="program__image" />
+                            </div>
+
+                            <h3 class="program__title">Поднятия веса</h3>
+
+                            <p class="program__description">
+                                Наш тренер подскажет вам как праильно добиться наилучшего
+                                результата
+                            </p>
+
+                            <a href="#" class="program__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== ВЫБИРАЙ НАС ====================-->
+        <section class="choose section" id="choose">
+            <div class="choose__overflow">
+                <div class="choose__container container grid">
+                    <div class="choose__content">
+                        <div class="section__data">
+                            <h2 class="section__subtitle">Лучшая причина</h2>
+                            <div class="section__titles">
+                                <h1 class="section__title-border">ПО КОТОРОЙ СТОИТ</h1>
+                                <h1 class="section__title">ВЫБРАТЬ НАС</h1>
+                            </div>
+                        </div>
+
+                        <p class="choose__description">
+                            Выбери свое направление и начинай сейчас.
+                        </p>
+
+                        <div class="choose__data">
+                            <div class="choose__group">
+                                <h3 class="choose__number">1000</h3>
+                                <p class="choose__subtitle">
+                                    Постоянных клиентов каждый день
+                                </p>
+                            </div>
+                            <div class="choose__group">
+                                <h3 class="choose__number">10+</h3>
+                                <p class="choose__subtitle">Лучший тренеров Миасса</p>
+                            </div>
+                            <div class="choose__group">
+                                <h3 class="choose__number">25+</h3>
+                                <p class="choose__subtitle">Программ</p>
+                            </div>
+                            <div class="choose__group">
+                                <h3 class="choose__number">100+</h3>
+                                <p class="choose__subtitle">Наград</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="choose__images">
+                        <img src="assets/img/choose-img.png" alt="choose image" class="choose__img" />
+
+                        <div class="choose__triangle choose__triangle-1"></div>
+                        <div class="choose__triangle choose__triangle-2"></div>
+                        <div class="choose__triangle choose__triangle-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== ПРАЙС ====================-->
+        <section class="pricing section" id="pricing">
+            <div class="container">
+                <div class="section__data">
+                    <h2 class="section__subtitle">Прайс</h2>
+                    <div class="section__titles">
+                        <h1 class="section__title-border">НАШИ</h1>
+                        <h1 class="section__title">ПРЕДЛОЖЕНИЯ</h1>
+                    </div>
+                </div>
+
+                <div class="pricing__container grid">
+                    <article class="pricing__card">
+                        <header class="pricing__header">
+                            <div class="pricing__shape">
+                                <img src="assets/img/pricing1.png" alt="pricing image" class="pricing__img" />
+                            </div>
+
+                            <h1 class="pricing__title">БАЗОВЫЙ ПАКЕТ</h1>
+                            <h2 class="pricing__number">2000 ₽</h2>
+                        </header>
+
+                        <ul class="pricing__list">
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Посещение 5 дней в
+                                неделю
+                            </li>
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Фирменная футболка
+                            </li>
+                            <li class="pricing__item pricing__item-opacity">
+                                <i class="ri-checkbox-circle-line"></i>Бутылка протеина
+                            </li>
+                            <li class="pricing__item pricing__item-opacity">
+                                <i class="ri-checkbox-circle-line"></i>Доступ к видео
+                            </li>
+                            <li class="pricing__item pricing__item-opacity">
+                                <i class="ri-checkbox-circle-line"></i>Стретчинг
+                            </li>
+                        </ul>
+
+                        <a href="" class="button button__flex pricing__button">
+                            Приобрести <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </article>
+
+                    <article class="pricing__card pricing__card-active">
+                        <header class="pricing__header">
+                            <div class="pricing__shape">
+                                <img src="assets/img/pricing2.png" alt="pricing image" class="pricing__img" />
+                            </div>
+
+                            <h1 class="pricing__title">PREMIUM ПАКЕТ</h1>
+                            <h2 class="pricing__number">4000 ₽</h2>
+                        </header>
+
+                        <ul class="pricing__list">
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Посещение 5 дней в
+                                неделю
+                            </li>
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Фирменная футболка
+                            </li>
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Бутылка протеина
+                            </li>
+                            <li class="pricing__item pricing__item-opacity">
+                                <i class="ri-checkbox-circle-line"></i>Доступ к видео
+                            </li>
+                            <li class="pricing__item pricing__item-opacity">
+                                <i class="ri-checkbox-circle-line"></i>Стретчинг
+                            </li>
+                        </ul>
+
+                        <a href="" class="button button__flex pricing__button">
+                            Приобрести <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </article>
+
+                    <article class="pricing__card">
+                        <header class="pricing__header">
+                            <div class="pricing__shape">
+                                <img src="assets/img/pricing3.png" alt="pricing image" class="pricing__img" />
+                            </div>
+
+                            <h1 class="pricing__title">DIAMOND ПАКЕТ</h1>
+                            <h2 class="pricing__number">10.000 ₽</h2>
+                        </header>
+
+                        <ul class="pricing__list">
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Посещение 5 дней в
+                                неделю
+                            </li>
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Фирменная футболка
+                            </li>
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Бутылка протеина
+                            </li>
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Доступ к видео
+                            </li>
+                            <li class="pricing__item">
+                                <i class="ri-checkbox-circle-line"></i>Стретчинг
+                            </li>
+                        </ul>
+
+                        <a href="" class="button button__flex pricing__button">
+                            Приобрести <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== КАЛЬКУЛЯТОЛР ИМТ ====================-->
+        <section class="calculate section">
+            <div class="calculate__container conatainer grid">
+                <div class="calculate__content">
+                    <div class="section__titles">
+                        <h1 class="section__title-border">РАССЧИТАЙ СВОЙ</h1>
+                        <h1 class="section__title">ИМТ</h1>
+                    </div>
+
+                    <p class="calculate__description">
+                        Индекс массы тела (ИМТ) — это числовой показатель,
+                        <br />
+                        который используется для оценки соотношения веса и роста человека.
+                        <br />
+                        Он рассчитывается по формуле:
+                        <br><br> 
+                        <strong>ИМТ = вес (кг) / (рост (м) * рост(м)).</strong>
+                        
+                        <br />
+                    </p>
+
+                    <form action="" class="calculate__form" id="calculate-form">
+                        <div class="calculate__box">
+                            <input type="number" placeholder="Height" class="calculate__input" id="calculate-cm" />
+                            <label for="" class="calculate__label">cm</label>
+                        </div>
+                        <div class="calculate__box">
+                            <input type="number" placeholder="Weight" class="calculate__input" id="calculate-kg" />
+                            <label for="" class="calculate__label">kg</label>
+                        </div>
+
+                        <button type="submit" class="button button__flex">
+                            Посмотреть результат! <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </form>
+
+                    <p class="calculate__message" id="calculate-message"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== ФУТЕР ====================-->
+    <footer class="footer section" id="footer">
+        <div class="footer__container container grid">
+            <div>
+                <a href="#" class="footer__logo">
+                    <img src="assets/img/logo-nav.png" alt="" />D-FIT
+                </a>
+                <p class="footer__description">
+                    Подписывайся на обновления<br />
+                    студии, чтобы быть в курсе всего
+                </p>
+                <form action="" class="footer__form" id="contact-form">
+                    <input type="email" name="user_email" placeholder="Ваша почта" class="footer__input"
+                        id="contact-user" />
+                    <button type="submit" class="button">Подписаться</button>
+                </form>
+
+                <p class="footer__message" id="contact-message"></p>
+            </div>
+
+            <div class="footer__content">
+
+                <div>
+                    <h3 class="footer__title">
+                        Сервисы
+                    </h3>
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#" class="footer__link">Развитие мускулатуры</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Кардио</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Йога</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Поднятия веса</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__title">
+                        Прайс
+                    </h3>
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#" class="footer__link">БАЗОВЫЙ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">PREMIUM</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">DIAMOND</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__title">
+                        Наша Студия
+                    </h3>
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#" class="footer__link">О НАС</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">КАРЬЕРА</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">КЛИЕНТЫ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">ПАРТНЕРЫ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <div class="footer__group">
+                        <ul class="footer__social">
+                            <a href="" target="_blank" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="" target="_blank" class="footer__social-link">
+                                <i class="ri-telegram-fill"></i>
+                            </a>
+                        </ul>
+
+                        <span class="footer__copy">
+                            &#169; Тимофей Эльсессер ИС 3-1(22). МГРК 2024г
+                        </span>
+                    </div>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== EMAIL JS ===============-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
